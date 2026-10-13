@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Mechanical Elegance — GARASI PRIME */
+    --background: 240 6% 6%;          /* Deep Asphalt #0F0F10 */
+    --foreground: 240 20% 96%;        /* Pure Aluminum #F2F2F7 */
+    --card: 240 6% 9%;
+    --card-foreground: 240 20% 96%;
+    --popover: 240 6% 9%;
+    --popover-foreground: 240 20% 96%;
+    --primary: 19 100% 50%;           /* Ignition Orange #FF4D00 */
+    --primary-foreground: 0 0% 0%;     /* black text on orange for AA */
+    --secondary: 240 5% 14%;
+    --secondary-foreground: 240 20% 96%;
+    --muted: 240 5% 14%;
+    --muted-foreground: 240 5% 65%;   /* Steel Smoke #A1A1AA */
+    --accent: 240 5% 14%;
+    --accent-foreground: 240 20% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 16%;
+    --input: 240 5% 16%;
+    --ring: 19 100% 50%;
+    --radius: 0.5rem;
+
+    /* Surfaces */
+    --asphalt: 240 6% 6%;
+    --asphalt-soft: 240 6% 9%;
+    --aluminum: 240 20% 96%;
+    --steel: 240 5% 65%;
+    --ignition: 19 100% 50%;
+
+    --font-heading: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  .font-mono-tech {
+    font-family: var(--font-mono);
+  }
+
+  /* Reveal-on-scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
