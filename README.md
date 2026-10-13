@@ -12,3 +12,15 @@ Frontend website for Garasi Prime, built with React and Vite.
 
 - `npm run build` creates a production build in `dist/`.
 - `npm run lint` checks the source files.
+
+## Deploy to Cloudflare Pages
+
+The `wrangler.jsonc` file configures this project as a Cloudflare Pages site.
+In the Cloudflare dashboard, create a Pages project connected to this repository
+and use these build settings:
+
+- Build command: `npm run build`
+- Build output directory: `dist`
+
+Cloudflare Pages uses the configuration in `wrangler.jsonc` for the project name,
+compatibility date, and build output directory.
