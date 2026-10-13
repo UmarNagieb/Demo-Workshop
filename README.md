@@ -21,6 +21,11 @@ and use these build settings:
 
 - Build command: `npm run build`
 - Build output directory: `dist`
+- Deploy command: leave unset when using the Pages Git integration's automatic deployment.
 
 Cloudflare Pages uses the configuration in `wrangler.jsonc` for the project name,
 compatibility date, and build output directory.
+
+If a deploy command is required by the dashboard, use
+`npx wrangler pages deploy dist --project-name=garasi-prime`.
+Do not use `npx wrangler deploy`; that command deploys a Worker, not a Pages site.
